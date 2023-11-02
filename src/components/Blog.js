@@ -6,7 +6,7 @@ function Blog() {
     // consume the context 
     const {posts,loading} = useContext(AppContext);
   return (
-    <div className='w-11/12 max-w-[540px]'>
+    <div className='w-11/12 max-w-[540px] py-3 flex flex-col gap-y-8 mb-[3.75rem]'>
         {
             loading ? (<Spinner/>) :
              (
@@ -19,14 +19,15 @@ function Blog() {
                 (posts.map(post=>(
                     <div className='flex flex-col' key={post.id}>
                         <p className='font-bold text-sm'>{post.title}</p>
-                        <p>
-                            By <span>{post.author}</span> on <span>{post.category}</span>
+                        <p className='text-[0.75rem]'>
+                            By <span className='italic'>{post.author}</span> on <span className='underline font-bold'>{post.category}</span>
                         </p>
-                        <p>Posted on {post.date}</p> 
-                        <p>{post.content}</p>
-                        <div>
+                        <p className='text-[0.75rem] mt-[0.625rem]'>Posted on {post.date}</p> 
+                        <p className='text-sm mt-[0.625rem]'>{post.content}</p>
+                        <div className='flex '>
                             {post.tags.map((tag,index)=>{
-                                return <span key={index}>{`#${tag}`}</span>
+                                return <span className='text-blue-500 underline bold 
+                                text-[0.75rem] ' key={index}>{`#${tag}`}</span>
                             })}
                         </div>
                     </div>

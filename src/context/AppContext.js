@@ -40,9 +40,11 @@ function AppContextProvider({children}){
         setLoading(false);
     }
 
-    function handlePageChange(page){
+     async function handlePageChange(page){
+        // setLoading(true);
         setPage(page);
         fetchBlogPosts(page); 
+        // setLoading(false);
     }
 
     return <AppContext.Provider value={value}>
